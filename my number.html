@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G my number</title>
+    <style>
+        body{
+            background-color:plum;
+        }
+        .div1 p{
+            text-align: end;
+
+
+        }
+        .div2 {
+            text-align:center;
+        }
+        .div2 span{
+            border: 1px solid;
+            padding: 20px;
+            font-size: 15vh;
+            background-color:red;
+            
+        }
+        aside{
+        margin-left: 50%;
+        }
+        .div3 button{
+            margin: 1%;
+
+        }
+        .div3 p{
+            text-align: end;
+            margin-right: 25%;
+        }
+        hr{
+            padding: 7px;
+            background-color: white;
+            margin-top: -2%;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="div1">
+    <button onclick="again()">Again!</button>
+    <p>Between 1 and 20</p>
+    </div>
+    <div class="div2">
+    <h1>Guess my number</h1>
+    <span>&#63</span>
+    <hr>
+    <aside id="game">Start Game...</aside>
+    </div>
+    <div  class="div3">
+    <input type="number" name="click"  id="me"><br>
+    <button onclick="clicked()">click!</button>
+    <p id="re">Score :20</p>
+
+    <p id="mou">High Score:</p> 
+    </div>
+
+<script>
+
+
+let mouni=Math.floor((Math.random() * 20) + 1);
+let seccr=20;
+
+    function again(){
+        document.getElementById('game').innerHTML="Start Game...";
+            document.querySelector("body").style.backgroundColor='plum';
+            document.getElementById("mou").innerHTML= `High Score: ${seccr}`;
+            document.querySelector("span").innerHTML=`&#63`;
+           // seccr=20;
+            //document.querySelector('.re').innerHTML =`Score:${seccr}`;
+             mouni=Math.floor((Math.random() * 20) + 1);
+             console.log(mouni);
+    
+            
+
+
+    }
+    
+    
+    function clicked(){
+         
+        const meInput=document.getElementById('me').value;
+        
+
+        
+        
+        if(meInput==mouni){
+            console.log('true');
+            document.getElementById('game').innerHTML="Game is Success &#x2713";
+            document.querySelector("body").style.backgroundColor='green';
+            document.getElementById("mou").innerHTML=`High Score: ${seccr}`;
+            document.querySelector("span").innerHTML=`${mouni}`;
+
+
+        }
+        else if(meInput<mouni){
+            document.getElementById("game").innerHTML="number is low &#x2715";
+            seccr=seccr-1;
+            document.getElementById("re").innerHTML=`Score : ${seccr}`;
+
+        }
+        else if(meInput>mouni){
+            document.getElementById("game").innerHTML="number is High &#x2715";
+            seccr=seccr-1;
+            document.getElementById("re").innerHTML=`Score : ${seccr}`;
+
+        }
+        else{
+            console.log('false');
+            document.getElementById('game').innerHTML="Game is Success";
+        }
+        if(meInput==0){
+            document.getElementById('game').innerHTML="Enter Number";
+
+        }
+        if(seccr<=0){
+            document.getElementById('game').innerHTML="Enter Number";
+            document.querySelector("body").style.backgroundColor='red';
+
+
+        }
+
+    }
+    console.log(mouni);
+</script>
+</body>
+</html>
